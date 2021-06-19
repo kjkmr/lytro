@@ -30,6 +30,9 @@ class App{
 
 	setup() {
 
+		this.lytro.setup()
+		this.real.setup()
+
 		// stats
 		this.stats = new Stats()
 		this.stats.showPanel(0)
@@ -46,6 +49,7 @@ class App{
 
 		this.updateParams()
 		this.update()
+		document.querySelector('body').classList.remove('loading')
 	}
 
 	updateParams() {
@@ -68,5 +72,4 @@ class App{
 
 window.onload = function(){
 	new App();
-	document.querySelector('body').classList.remove('loading')
 }

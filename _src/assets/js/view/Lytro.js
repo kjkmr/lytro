@@ -45,10 +45,7 @@ export default class Lytro {
 	 */
 	load(callback) {
 		this.stacks = []
-		this.loadingManager = new LoadingManager(() => {
-			this.setup()
-			callback()
-		}, this.onLoadingProgres.bind(this))
+		this.loadingManager = new LoadingManager(callback, this.onLoadingProgres.bind(this))
 		for (let i=0; i<=6; i++) {
 			const path = this.path+'/stack.image_0'+i+'.jpg'
 			const stack = new TextureLoader(this.loadingManager).load(path)

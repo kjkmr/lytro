@@ -33,10 +33,7 @@ export default class Real {
 	 */
 	load(callback) {
 		this.stacks = []
-		this.loadingManager = new LoadingManager(() => {
-			this.setup()
-			callback()
-		}, this.onLoadingProgres.bind(this))
+		this.loadingManager = new LoadingManager(callback, this.onLoadingProgres.bind(this))
 		for (let i=0; i<=7; i++) {
 			const path = this.path+'/0'+i+'.jpg'
 			const stack = new TextureLoader(this.loadingManager).load(path)
@@ -58,11 +55,9 @@ export default class Real {
 	 * setup
 	 */
 	setup() {
-		console.log('real setup')
 		this.camera = new Camera()
 		this.camera.position.z = 1
 		this.scene = new Scene()
-		console.log(this.stacks[0])
 		this.width = this.stacks[0].image.width
 		this.height = this.stacks[0].image.height
 		this.aspectRatio = this.width / this.height
@@ -120,7 +115,6 @@ export default class Real {
 	 * render
 	 */
 	render() {
-		console.log('real.render')
 		this.mesh.material = this.material
 		this.renderer.render(this.scene, this.camera)
 	}

@@ -3,6 +3,33 @@ html
 	font-weight 300
 	color #333
 
+#loading {
+	display none
+}
+
+body.loading #loading {
+	text-align center
+	display block
+	padding 10px
+	font-size 12px
+	opacity 1
+	animation blink 0.3s linear infinite
+}
+
+@keyframes blink {
+	0% {
+		opacity 0
+	}
+	50% {
+		opacity 1
+	}
+	100% {
+		opacity 0
+	}
+}
+
+
+
 //PC
 @media screen and (min-width 800px)
 	body
