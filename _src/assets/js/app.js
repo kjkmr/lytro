@@ -22,10 +22,10 @@ class App{
 		})
 	}
 
-	onClickScroll() {
+	onClickScroll(duration=1.0) {
 		if (this.scrollTween) this.scrollTween.kill()
 		const focus = this.params.focus == 0.0 ? 1.0 : 0.0
-		this.scrollTween = gsap.to(this.params, {'focus': focus, duration:1.5, ease:'expo.inOut', onUpdate: this.updateParams.bind(this) })
+		this.scrollTween = gsap.to(this.params, {'focus': focus, duration:duration, ease:'cubic.inOut', onUpdate: this.updateParams.bind(this) })
 	}
 
 	setup() {
@@ -39,7 +39,7 @@ class App{
 		document.body.appendChild(this.stats.dom)
 		// gui
 		this.params = {
-			focus: 0.0,
+			focus: 1.0,
 		}
 		this.gui = new GUI()
 		this.gui.add(this.params, 'focus', 0, 1.0).step(0.001).onChange(this.updateParams.bind(this)).listen()
@@ -49,6 +49,7 @@ class App{
 
 		this.updateParams()
 		this.update()
+		this.onClickScroll(3)
 		document.querySelector('body').classList.remove('loading')
 	}
 
