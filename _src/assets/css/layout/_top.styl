@@ -1,0 +1,27 @@
+html
+	font-family Univers, 'Univers LT Std', Helvetica, Arial, YuGothic, 'Yu Gothic Medium', 'Hiragino Kaku Gothic ProN', sans-serif
+	font-weight 300
+	color #333
+
+//PC
+@media screen and (min-width 800px)
+	body
+		margin 0px
+	#container
+		width 100vw;
+		display flex;
+		#lytro, #real
+			canvas
+				width: 50vw;
+				height: 50vw;
+
+//SP
+@media screen and (max-width 799px)
+	body
+		margin 0px
+	#container
+		width 100vw;
+		#lytro, #real
+			canvas
+				width: 100vw;
+				height: 100vw;

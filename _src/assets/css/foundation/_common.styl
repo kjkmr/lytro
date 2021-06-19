@@ -1,0 +1,44 @@
+a
+	vertical-align: baseline
+	text-decoration: none
+	&:link,
+	&:visited,
+	&:hover
+		text-decoration: none
+	&:hover
+		text-decoration: underline
+
+html,body
+	width: 100%
+	word-break: break-all
+	-webkit-text-size-adjust: none
+
+*, *:before, *:after
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+
+body.en
+	.lang-en
+		display inline
+	.lang-ja
+		display none
+body.ja
+	.lang-en
+		display none
+	.lang-ja
+		display inline
+
+//Contents（PC 960px - 769px）
+@media all and (min-width: 769px)
+	.sp-view
+		display: none !important
+
+
+//Contents（SP 768px - ）
+@media all and (max-width: 768px)
+	a
+		//tap color
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+	.pc-view
+		display: none !important

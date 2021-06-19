@@ -1,0 +1,65 @@
+{
+	"name": "admin.ita-ya.com",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:k28mrn/gulp-task.git"
+	},
+	"author": "KTY.M",
+	"license": "MIT",
+	"dependencies": {
+		"coffeescript": "2.5.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.7.7",
+		"@babel/preset-env": "^7.7.7",
+		"babel-loader": "^8.0.6",
+		"browser-sync": "^2.26.7",
+		"browser-sync-webpack-plugin": "^2.2.2",
+		"del": "5.1.0",
+		"esdoc": "^1.1.0",
+		"esdoc-standard-plugin": "^1.0.0",
+		"events": "3.1.0",
+		"glslify": "7.0.0",
+		"glslify-loader": "2.0.0",
+		"gsap": "^3.5.1",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "7.0.1",
+		"gulp-changed": "4.0.2",
+		"gulp-concat": "2.6.1",
+		"gulp-esdoc": "^0.4.1",
+		"gulp-if": "3.0.0",
+		"gulp-notify": "3.2.0",
+		"gulp-plumber": "1.2.1",
+		"gulp-pug": "4.0.1",
+		"gulp-replace": "^1.0.0",
+		"gulp-sourcemaps": "2.6.5",
+		"gulp-stylus": "2.7.0",
+		"gulp-wait": "0.0.2",
+		"html-loader": "0.5.5",
+		"i": "^0.3.6",
+		"json-loader": "0.5.7",
+		"minimist": "^1.2.5",
+		"pug-html-loader": "1.1.5",
+		"raw-loader": "4.0.0",
+		"require-dir": "1.2.0",
+		"run-sequence": "2.2.1",
+		"terser-webpack-plugin": "^3.0.0",
+		"three": "^0.112.1",
+		"three-rounded-box": "^0.1.1",
+		"webpack": "^4.41.5",
+		"webpack-dev-server": "^3.10.1",
+		"webpack-stream": "5.2.1"
+	},
+	"browserslist": [
+		"last 2 versions",
+		"Explorer 11",
+		"iOS 9.0",
+		"Android 4.1"
+	]
+}
