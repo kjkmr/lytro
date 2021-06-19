@@ -37,7 +37,15 @@ body.loading #loading {
 	#container
 		width 100vw;
 		display flex;
+		.loading &
+			display none
 		#lytro, #real
+			width: 50vw;
+			h2
+				width: 50vw;
+				font-size 15px
+				text-align center
+				padding 10px
 			canvas
 				width: 50vw;
 				height: 50vw;
@@ -49,6 +57,11 @@ body.loading #loading {
 	#container
 		width 100vw;
 		#lytro, #real
+			h2
+				width: 100vw;
+				font-size 15px
+				padding 10px
+				text-align center
 			canvas
 				width: 100vw;
 				height: 100vw;
