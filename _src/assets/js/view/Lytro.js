@@ -18,13 +18,18 @@ export default class Lytro {
 	/**
 	 * Constructor
 	 */
-	constructor(path, container, minShift, maxShift) {
+	constructor(path, container, minShift, maxShift, minFocus, maxFocus) {
 		this.path = path
 		this.container = container
 		this.shiftSettings = {
 			min: minShift,
 			max: maxShift
 		}
+		this.focusSettings = {
+			min: minFocus,
+			max: maxFocus
+		}
+		this.focus = minFocus
 		this._shift = 0
 	}
 
@@ -38,6 +43,7 @@ export default class Lytro {
 	set shift(value) {
 		this._shift = value
 		this.uniforms.shift.value = this.shiftSettings.min + this._shift * (this.shiftSettings.max - this.shiftSettings.min)
+		this.uniforms.focus.value = this.focusSettings.min + this._shift * (this.focusSettings.max - this.focusSettings.min)
 	}
 
 	/**
@@ -51,6 +57,9 @@ export default class Lytro {
 			const stack = new TextureLoader(this.loadingManager).load(path)
 			this.stacks.push(stack)
 		}
+		const path = this.path+'/stack.depthmap.png'
+		this.depthMap = new TextureLoader(this.loadingManager).load(path)
+
 	}
 
 	/**
@@ -81,6 +90,8 @@ export default class Lytro {
 		})
 		// material
 		this.uniforms = {
+			focus : { type: "f", value: this.focus },
+			depthMap : { type: "t", value: this.depthMap },
 			stack0 : { type: "t", value: this.stacks[0] },
 			stack1 : { type: "t", value: this.stacks[1] },
 			stack2 : { type: "t", value: this.stacks[2] },

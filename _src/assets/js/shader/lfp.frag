@@ -1,9 +1,10 @@
 precision mediump float;
-uniform float time;
+uniform float focus;
 varying vec2 vUv;
 uniform float shift;
 uniform float aspectRatio;
 uniform vec2 resolution;
+uniform sampler2D depthMap;
 uniform sampler2D stack0;
 uniform sampler2D stack1;
 uniform sampler2D stack2;
@@ -20,12 +21,14 @@ uniform vec2 stackUv5;
 uniform vec2 stackUv6;
 
 vec3 averageColor(sampler2D tex, vec2 uv) {
-	float px = 1.2 / resolution.x;
-	float py = 1.2 / resolution.y;
+	vec4 d = texture2D(depthMap, vUv);
+	float p = abs(d.r - focus) * 16.0;
+	float px = p / resolution.x;
+	float py = p / resolution.y;
 	float total = 0.;
 	vec3 color = vec3(0., 0., 0.);
-	for (float x=-1.; x<=1.; x++) {
-		for (float y=-1.; y<=1.; y++) {
+	for (float x=-1.0; x<=1.0; x+=0.5) {
+		for (float y=-1.0; y<=1.0; y+=0.5) {
 			vec2 uv_ = uv + vec2(x*px,y*px);
 			float p = pow(2., -(abs(x)+abs(y)));
 			color += texture2D(tex, uv_).rgb * p;
@@ -45,4 +48,6 @@ void main()	{
 	vec3 color6 = averageColor(stack6, vUv + stackUv6 * shift);
 	vec3 color = (color0 + color1 + color2 + color3 + color4 + color5 + color6) / 7.;
 	gl_FragColor = vec4(color, 1.);
+	// gl_FragColor = vec4(vUv.x, vUv.y, 1.0, 1.0);
+	// gl_FragColor = texture2D(depthMap, vUv);
 }

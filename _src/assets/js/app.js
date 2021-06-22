@@ -8,8 +8,8 @@ class App{
 	constructor(){
 		// content
 		this.needsUpdate = false;
-		this.lytro1 = new Lytro('./assets/images/lytro1', document.getElementById('lytro'), 0.016, 0.001);
-		this.lytro2 = new Lytro('./assets/images/lytro2', document.getElementById('lytro'), -0.004, -0.011);
+		this.lytro2 = new Lytro('./assets/images/lytro2', document.getElementById('lytro'), 0.009, -0.02, 0.5, 0.7843);
+		this.lytro1 = new Lytro('./assets/images/lytro1', document.getElementById('lytro'), 0.0165, 0.02, 0.8313, 0.8862);
 		this.real1 = new Real('./assets/images/real1', document.getElementById('real'));
 		this.real2 = new Real('./assets/images/real2', document.getElementById('real'));
 		// load
