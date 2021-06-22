@@ -9,7 +9,7 @@ class App{
 		// content
 		this.needsUpdate = false;
 		this.lytro2 = new Lytro('./assets/images/lytro2', document.getElementById('lytro'), 0.009, -0.02, 0.5, 0.78);
-		this.lytro1 = new Lytro('./assets/images/lytro1', document.getElementById('lytro'), 0.0165, 0.005, 0.7, 0.8862);
+		this.lytro1 = new Lytro('./assets/images/lytro1', document.getElementById('lytro'), 0.016, 0.005, 0.8, 0.8862);
 		this.real1 = new Real('./assets/images/real1', document.getElementById('real'));
 		this.real2 = new Real('./assets/images/real2', document.getElementById('real'));
 		// load
