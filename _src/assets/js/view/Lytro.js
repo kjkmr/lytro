@@ -13,18 +13,18 @@ const offsetSetings = [
 	new Vector2(0.34641015529632568359,0.20000000298023223877),
 ]
 
-const shiftSettings = {
-	min: 0.016,
-	max: 0.001
-}
 
 export default class Lytro {
 	/**
 	 * Constructor
 	 */
-	constructor(path, container) {
+	constructor(path, container, minShift, maxShift) {
 		this.path = path
 		this.container = container
+		this.shiftSettings = {
+			min: minShift,
+			max: maxShift
+		}
 		this._shift = 0
 	}
 
@@ -37,7 +37,7 @@ export default class Lytro {
 
 	set shift(value) {
 		this._shift = value
-		this.uniforms.shift.value = shiftSettings.min + this._shift * (shiftSettings.max - shiftSettings.min)
+		this.uniforms.shift.value = this.shiftSettings.min + this._shift * (this.shiftSettings.max - this.shiftSettings.min)
 	}
 
 	/**

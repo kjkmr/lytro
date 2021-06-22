@@ -20,8 +20,8 @@ uniform vec2 stackUv5;
 uniform vec2 stackUv6;
 
 vec3 averageColor(sampler2D tex, vec2 uv) {
-	float px = 1.0 / resolution.x;
-	float py = 1.0 / resolution.y;
+	float px = 1.2 / resolution.x;
+	float py = 1.2 / resolution.y;
 	float total = 0.;
 	vec3 color = vec3(0., 0., 0.);
 	for (float x=-1.; x<=1.; x++) {

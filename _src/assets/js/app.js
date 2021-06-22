@@ -8,16 +8,22 @@ class App{
 	constructor(){
 		// content
 		this.needsUpdate = false;
-		this.lytro = new Lytro('./assets/images/lytro', document.getElementById('lytro'));
-		this.real = new Real('./assets/images/real', document.getElementById('real'));
+		this.lytro1 = new Lytro('./assets/images/lytro1', document.getElementById('lytro'), 0.016, 0.001);
+		this.lytro2 = new Lytro('./assets/images/lytro2', document.getElementById('lytro'), -0.004, -0.011);
+		this.real1 = new Real('./assets/images/real1', document.getElementById('real'));
+		this.real2 = new Real('./assets/images/real2', document.getElementById('real'));
 		// load
 		this.load()
 	}
 
 	load() {
-		this.lytro.load(() =>{
-			this.real.load(() => {
-				this.setup()
+		this.lytro1.load(() =>{
+			this.lytro2.load(() =>{
+				this.real1.load(() => {
+					this.real2.load(() => {
+						this.setup()
+					})
+				})
 			})
 		})
 	}
@@ -30,8 +36,10 @@ class App{
 
 	setup() {
 
-		this.lytro.setup()
-		this.real.setup()
+		this.lytro2.setup()
+		this.lytro1.setup()
+		this.real2.setup()
+		this.real1.setup()
 
 		// stats
 		this.stats = new Stats()
@@ -54,8 +62,10 @@ class App{
 	}
 
 	updateParams() {
-		this.lytro.shift = this.params.focus
-		this.real.shift = this.params.focus
+		this.lytro1.shift = this.params.focus
+		this.lytro2.shift = this.params.focus
+		this.real1.shift = this.params.focus
+		this.real2.shift = this.params.focus
 		this.needsUpdate = true
 	}
 
@@ -63,8 +73,10 @@ class App{
 		this.stats.begin()
 		window.requestAnimationFrame(this.update.bind(this))
 		if (this.needsUpdate) {
-			this.lytro.update()
-			this.real.update()
+			this.lytro1.update()
+			this.lytro2.update()
+			this.real1.update()
+			this.real2.update()
 			this.needsUpdate = false
 		}
 		this.stats.end()
